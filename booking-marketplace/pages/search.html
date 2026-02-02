@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Airbnb Search Bar</title>
+    <link rel="stylesheet" href="../css/pages.css" />
+  </head>
+  <body>
+    <form action="../index.html">
+      <div class="search-bar">
+        <div class="search-item" onclick="toggleDropdown(this)">
+          <label>Where</label>
+          <input type="text" placeholder="Search destinations" />
+
+          <div class="dropdown">
+            <p onclick="selectOption(this)">Delhi</p>
+            <p onclick="selectOption(this)">Mumbai</p>
+            <p onclick="selectOption(this)">Bangalore</p>
+            <p onclick="selectOption(this)">Jaipur</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="search-item" onclick="toggleDropdown(this)">
+          <label>Check in</label>
+          <input type="date" placeholder="Add dates" />
+
+          <div class="dropdown">
+            <p>Delhi</p>
+            <p>Mumbai</p>
+            <p>Bangalore</p>
+            <p>Jaipur</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="search-item" onclick="toggleDropdown(this)">
+          <label>Check out</label>
+          <input type="date" placeholder="Add dates" />
+
+          <div class="dropdown">
+            <p>Delhi</p>
+            <p>Mumbai</p>
+            <p>Bangalore</p>
+            <p>Jaipur</p>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="search-item extraCSS" onclick="toggleDropdown(this)">
+          <div>
+            <label>Who</label>
+            <input type="text" placeholder="Add guests" />
+          </div>
+          <div>
+            <button class="search-btn">🔍</button>
+          </div>
+
+          <div class="dropdown">
+            <p>Delhi</p>
+            <p>Mumbai</p>
+            <p>Bangalore</p>
+            <p>Jaipur</p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+
+  <script>
+    function toggleDropdown(item) {
+      // close all other dropdowns
+      document.querySelectorAll(".dropdown").forEach((d) => {
+        if (!item.contains(d)) d.style.display = "none";
+      });
+
+      const dropdown = item.querySelector(".dropdown");
+      dropdown.style.display =
+        dropdown.style.display === "block" ? "none" : "block";
+    }
+
+    // close dropdown when clicking outside
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".search-item")) {
+        document.querySelectorAll(".dropdown").forEach((d) => {
+          d.style.display = "none";
+        });
+      }
+    });
+
+    function selectOption(el) {
+      const input = el.closest(".search-item").querySelector("input");
+      input.value = el.innerText;
+      el.querySelector(".dropdown").style.display = "none";
+    }
+  </script>
+</html>
