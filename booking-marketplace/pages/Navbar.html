@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+    <link rel="stylesheet" href="../css/navbar.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="../assets/icons/airbnb.png" alt="logo" />
+      </div>
+
+      <!-- Menu -->
+      <ul class="nav-links">
+        <li><a href="#">Homes</a></li>
+        <li><a href="#">Experiences</a></li>
+        <li><a href="#">Services</a></li>
+      </ul>
+
+      <!-- Right Section -->
+      <div class="nav-right">
+        <p class="host-text">Become a host</p>
+
+        <div class="profile">
+          <img src="settings.png" alt="settings" id="settingsIcon" />
+
+          <div class="dropdown" id="dropdownMenu">
+            <ul>
+              <li><button>Help Center</button></li>
+              <li><button>Become a Host</button></li>
+              <li><button>Refer a Host</button></li>
+              <li><button>Find a Co-host</button></li>
+              <li><button>Login or Sign Up</button></li>
+            </ul>
+          </div>
+        </div>
+        <div class="profile">
+          <img
+            src="../assets/icons/settings.jpg"
+            alt="settings"
+            id="settingsIcon"
+          />
+
+          <!-- Dropdown -->
+          <div class="dropdown" id="dropdownMenu">
+            <ul>
+              <li><button>Help Center</button></li>
+
+              <li class="host-box">
+                <button>Become a Host</button>
+                <p>It's easy to start hosting and earn extra income</p>
+              </li>
+
+              <li><button>Refer a Host</button></li>
+              <li><button>Find a Co-host</button></li>
+
+              <li class="login-btn">
+                <button>Login or Sign Up</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <script>
+      const icon = document.getElementById("settingsIcon");
+      const dropdown = document.getElementById("dropdownMenu");
+
+      // Toggle dropdown on click
+      icon.addEventListener("click", function (event) {
+        event.stopPropagation();
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block";
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", function () {
+        dropdown.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
